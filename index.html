@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjelasan Tujuan</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font yang lebih modern */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            
+            /* --- Bagian Background yang Bisa Anda Atur --- */
+            /* Contoh: Menggunakan gambar */
+            /* background-image: url('nama-gambar-anda.jpg'); */
+            /* background-size: cover; */
+            /* background-position: center; */
+            /* background-repeat: no-repeat; */
+
+            /* Contoh: Menggunakan warna solid */
+            /* background-color: #e0f7fa; */ /* Warna biru muda */
+
+            /* Contoh: Menggunakan gradient */
+            background: linear-gradient(to right, #6dd5ed, #2193b0); /* Gradient biru */
+            /* ------------------------------------------- */
+
+            color: #333; /* Warna teks default */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.95); /* Sedikit transparan agar background terlihat */
+            padding: 35px;
+            border-radius: 12px; /* Sudut lebih membulat */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Bayangan lebih jelas */
+            max-width: 600px;
+            width: 100%;
+            transform: translateY(0); /* Untuk efek awal */
+            transition: transform 0.5s ease-out; /* Transisi saat perubahan container */
+        }
+
+        #tujuanText {
+            font-size: 1.6em;
+            color: #2c3e50; /* Warna teks yang lebih gelap */
+            margin-bottom: 25px;
+            min-height: 60px; /* Memberi ruang agar tidak terlalu bergeser saat teks berubah */
+            display: flex; /* Untuk posisi teks di tengah secara vertikal */
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease-in-out; /* Transisi saat teks berubah */
+        }
+
+        .lanjutButton {
+            background-color: #28a745; /* Warna hijau yang lebih menarik */
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 8px; /* Sudut tombol lebih membulat */
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Transisi saat hover dan klik */
+            outline: none; /* Menghilangkan outline saat fokus */
+        }
+
+        .lanjutButton:hover {
+            background-color: #218838; /* Warna hijau lebih gelap saat hover */
+            transform: translateY(-2px); /* Sedikit naik saat hover */
+        }
+
+        .lanjutButton:active {
+            background-color: #1e7e34; /* Warna hijau lebih gelap saat diklik */
+            transform: translateY(0); /* Kembali ke posisi semula saat diklik */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p id="tujuanText">Tujuan gua membawa keharmonisan keluarga cemara yang dulu
+          dan apakah aku bisa?¿ jika takdir berkata lain mungkin tidak.</p>
+        <button id="lanjutButton" class="lanjutButton">Lanjutkan</button>
+    </div>
+
+    <script>
+        const tujuanText = document.getElementById('tujuanText');
+        const lanjutButton = document.getElementById('lanjutButton');
+
+        const teksLanjutan = [
+            "Gua ingin belajar tentang IT meskipun harus pusing/pening karena takut kurang bakat.",
+            "Gua juga tertarik dengan pengembangan game",
+            "Dan, gua ingin terus belajar build PC dan teknologi baru setiap harinya meskipun harus sendirian!",
+            "Position: Kembali kerumah dimana aku lahir untuk sementara jika setelah tercapai dan kembali kerumah dimana aku besar tidak dianggap oleh yang melahirkan mungkin itu sakit ."
+        ];
+
+        let currentIndex = 0;
+
+        lanjutButton.addEventListener('click', function() {
+            // Memberi efek fade out sebelum teks berubah
+            tujuanText.style.opacity = '0'; 
+
+            // Setelah sedikit jeda, ubah teks dan fade in kembali
+            setTimeout(() => {
+                if (currentIndex < teksLanjutan.length) {
+                    tujuanText.textContent = teksLanjutan[currentIndex];
+                    currentIndex++;
+                } else {
+                    tujuanText.textContent = "Tujuan Gua ialah mencari tahu apa yang bisa gua lakukan dengan skill koding yang gua punya.";
+                    currentIndex = 0;
+                }
+                tujuanText.style.opacity = '1'; // Fade in
+            }, 300); // Jeda 300ms (0.3 detik)
+        });
+    </script>
+</body>
+</html>
